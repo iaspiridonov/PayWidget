@@ -1,0 +1,12 @@
+# Ignore IDE specific folders.
+# .vscode/
+.idea/
+
+# Ignore npm packages folder everywhere.
+node_modules/
+
+# Ignore compiled styles
+/css
+
+# Ignore macOS file location of elements
+.DS_Store

@@ -1,0 +1,24 @@
+html, body {
+	font-family: $font-family-base !important;
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	background-color: #ffffff;
+
+	box-sizing: border-box;
+
+	max-width: 1920px;
+	margin: auto;
+
+	overflow-x: hidden;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input, button, label {
+	
+	&:hover, &:focus, &:active {
+		outline: none !important;
+	}
+}

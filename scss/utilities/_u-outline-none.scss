@@ -1,0 +1,9 @@
+.u-outline-none {
+    outline: none !important;
+    box-shadow: none !important;
+
+    &:hover, &:focus, &:active {
+        outline: none !important;
+        box-shadow: none!important;
+    }
+}

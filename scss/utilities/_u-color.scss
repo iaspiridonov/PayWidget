@@ -1,0 +1,44 @@
+.u-color-default {
+	color: #2F2F2F !important;
+}
+
+.u-color-primary {
+	color: $color-primary !important;
+}
+
+.u-color-secondary {
+	color: $color-secondary !important;
+}
+
+.u-color-inverted {
+	color: $color-text-inverted !important;
+}
+
+.u-color-white {
+	color: #fff;
+}
+
+.u-color-gray {
+	color: $color-gray-text;
+}
+
+.u-color-link {
+	color: #005BD1;
+	
+	&:hover {
+		color: #005BD1;
+		text-decoration: underline;
+	}
+}
+
+.u-color-orange {
+	color: $color-orange !important;
+}
+
+.u-color-purple {
+	color: $color-purple !important;
+}
+
+.u-color-blue {
+	color: $color-blue !important;
+}
