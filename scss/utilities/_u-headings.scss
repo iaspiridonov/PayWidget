@@ -1,27 +1,25 @@
 .u-h1 {
-	font-weight: 700;
-	line-height: 1;
+	font-weight: 300;
+	line-height: 1.1;
 	font-family: $font-family-headings;
-	color: $color-primary;
-	font-size: 64px;
-	text-transform: uppercase;
+	color: #fff;
+	font-size: 26px;
 	word-break: break-word;
 	
-	@media (min-width: $sm) {
-		font-size: 100px;
+	@media (min-width: $md) {
+		font-size: 50px;
 	}
 }
 
 .u-h2 {
-	font-size: 34px;
-	font-weight: 700;
-	line-height: 1;
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 1.2;
 	font-family: $font-family-headings;
-	color: $color-primary;
-	text-transform: uppercase;
+	color: #fff;
 	
 	@media (min-width: $sm) {
-		font-size: 48px;
+		font-size: 30px;
 	}
 }
 

@@ -1,0 +1,14 @@
+.input {
+    border: 1px solid #5156EC;
+    border-radius: 5px;
+    background-color: transparent;
+    height: 40px;
+    width: 100%;
+    padding: 0 10px;
+    color: #fff;
+    
+    &::placeholder {
+        color: #fff;
+        opacity: .25;
+    }
+}

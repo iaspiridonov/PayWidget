@@ -42,7 +42,11 @@
 // 6. Blocks (aka Components) – specific UI components. 
 // This is where the majority of our work takes place 
 // and our UI components are often composed of Objects and Components.
-// @import "blocks/";
+@import "blocks/custom-modal";
+@import "blocks/card";
+@import "blocks/button";
+@import "blocks/custom-radio";
+@import "blocks/input";
 
 
 // 7. Utilities – utilities and helper classes with ability to override anything 
@@ -57,3 +61,4 @@
 @import "utilities/u-z-index";
 @import "utilities/u-object-fit";
 @import "utilities/u-margin";
+@import "utilities/u-cursor";

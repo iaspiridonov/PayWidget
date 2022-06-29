@@ -1,0 +1,107 @@
+.custom-modal {
+    max-width: 1200px;
+        
+    &__close {
+        color: #fff;
+        font-weight: 300;
+        cursor: pointer;
+    }
+    
+    & .modal-header {
+        background-color: $color-primary;
+        border-bottom: none;
+    }
+    
+    & .modal-content {
+        background: linear-gradient(107.36deg, #273863 9.55%, #080A1A 73.04%);
+        color: #fff;
+        font-weight: 300;
+        border: none;
+    }
+    
+    &__text {
+        
+        &-attention {
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 1.2;
+            padding-left: 10px;
+            position: relative;
+            
+            & b {
+                font-weight: 400;
+            }
+            
+            &::before {
+                content: '!';
+                font-size: 52px;
+                font-weight: 400;
+                position: absolute;
+                left: -15px;
+            }
+        }
+    }
+    
+    &__steps {
+        display: flex;
+        align-items: center;
+    }
+    
+    &__step {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        &:after {
+            display: block;
+            content: '';
+            width: 50px;
+            background-color: #fff;
+            height: 1px;
+            
+            @media (min-width: $md) {
+                width: 100px;
+            }
+        }
+            
+        &:last-child {
+            &::after {
+                content: none;
+            }
+        }
+        
+        &-number {
+            font-size: 14px;
+            font-weight: 300;
+            color: #fff;
+            border: 1px solid #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50px;
+            padding-top: 2px;
+        }
+        
+        &--active {
+            
+            & .custom-modal__step-number {
+                background-color: $color-secondary;
+                border: 1px solid #fff;
+            }
+        }
+        
+        &--completed {
+            
+            & .custom-modal__step-number {
+                background-color: $color-secondary;
+                border-color: $color-secondary;
+            }
+            
+            &:after {
+                background-color: $color-secondary;
+            }
+        }
+    }
+}
