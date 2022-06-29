@@ -1,14 +1,16 @@
 .button {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
-    padding: 10px 20px;
+    padding: 7px 10px;
     color: #fff;
     transition: .3s;
     border: none;
     border-radius: 5px;
+    border: 1px solid transparent;
     
     @media (min-width: $lg) {
         font-size: 22px;
+        padding: 10px 20px;
     }
     
     &--big {
@@ -26,6 +28,15 @@
         
         &:hover {
             background-color: $color-secondary-hover;
+        }
+    }
+    
+    &--primary {
+        background-color: $color-primary;
+        border: 1px solid $color-secondary;
+        
+        &:hover {
+            background-color: $color-secondary;
         }
     }
 }

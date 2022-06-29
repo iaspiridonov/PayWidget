@@ -186,7 +186,7 @@
                             <div class="col-lg-5 h-100 mb-lg-0 mb-4">
                                 <div class="u-bg-primary p-3 h-100 w-100">
                                     <div class="mb-3">
-                                        <img class="js-bank-name-img" src="" alt="Bank name" id="js-bank-image" style="display: none">
+                                        <img class="js-bank-name-img" src="" alt="Bank name" style="display: none">
                                     </div>
                                     <div class="u-h2 mb-4">Сумма пополнения</div>
                                     <div class="mb-2">Выберите сумму из предложенных:</div>
@@ -231,7 +231,7 @@
                             <div class="col-lg-7">
                                 <div class="u-bg-primary p-3 h-100 w-100 js-diplay-two-second-block" style="display: none;">
                                     <div class="u-h2 mb-3">
-                                        Ваш счет будет пополнен на <b>1245 USD</b>
+                                        Ваш счет будет пополнен на <b class="js-pay-amount"> </b><b> USD</b>
                                     </div>
                                     <div class="mb-3">
                                         Вам необходимо  будет перевести 87 891₽ с карты банка <span id="js-display-two-bank-name">"”.</span>
@@ -257,11 +257,8 @@
             <div class="modal-header">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="col-lg-9">
+                        <div class="col-lg-12">
                             <div class="u-h1">Пополнение счета</div>
-                        </div>
-                        <div class="col-lg-3 text-lg-end">
-                            <div data-bs-dismiss="modal" class="custom-modal__close" aria-label="Close">Отменить пополнение <i class="bi bi-x-lg"></i></div>
                         </div>
                     </div>
                 </div>
@@ -286,12 +283,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12 px-3 u-cursor-pointer" data-bs-target="#firstDisplay" data-bs-toggle="modal" data-bs-dismiss="modal">
-                            <i class="bi bi-arrow-left"></i>
-                            Изменить банк
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="modal-body">
@@ -299,10 +290,10 @@
                     <input type="hidden" name="bank" value="">
                     <div class="container-fluid">
                         <div class="row justify-content-between">
-                            <div class="col-lg-5 h-100 mb-lg-0 mb-4">
+                            <div class="col-lg-5 h-100 order-lg-1 order-2">
                                 <div class="u-bg-primary p-3 h-100 w-100">
                                     <div class="mb-3">
-                                        <img class="js-bank-name-img" src="" alt="Bank name" id="js-bank-image" style="display: none">
+                                        <img class="js-bank-name-img" src="" alt="Bank name" style="display: none">
                                     </div>
                                     <div class="u-h2 mb-3">5536 7890 2239 9981</div>
                                     <div class="u-h1 mb-3">87 891 ₽</div>
@@ -318,9 +309,17 @@
                                 </div>
                                 <button type="button" class="button button--big w-100 js-display-three-submit" disabled data-bs-target="#fourDisplay" data-bs-toggle="modal" data-bs-dismiss="modal">Подтвердить</button>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="u-bg-primary p-3 h-100 w-100 js-diplay-three-second-block">
-                                    
+                            <div class="col-lg-4 order-lg-2 order-1 mb-lg-0 mb-4 ">
+                                <div class="u-bg-secondary p-3 w-100 mb-4">
+                                    Время на совершение перевода: <i class="bi bi-clock-history"></i> 
+                                    <div id="js-time" class="d-none">300</div>
+                                    <span id="js-minutes-for-pay">
+                                    </span>:<span id="js-seconds-for-pay">
+                                    </span>
+                                </div>
+                                <div class="u-bg-primary p-3 w-100 text-end">
+                                    <span class="u-font-size-20">Сумма пополнения</span> <br>
+                                    <div class="u-h2 mt-2"><span class="js-pay-amount"></span>$</div>
                                 </div>
                             </div>
                         </div>
@@ -338,11 +337,8 @@
             <div class="modal-header">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="col-lg-9">
+                        <div class="col-lg-12">
                             <div class="u-h1">Пополнение счета</div>
-                        </div>
-                        <div class="col-lg-3 text-lg-end">
-                            <div data-bs-dismiss="modal" class="custom-modal__close" aria-label="Close">Отменить пополнение <i class="bi bi-x-lg"></i></div>
                         </div>
                     </div>
                 </div>
@@ -367,41 +363,82 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12 px-3 u-cursor-pointer" data-bs-target="#firstDisplay" data-bs-toggle="modal" data-bs-dismiss="modal">
-                            <i class="bi bi-arrow-left"></i>
-                            Изменить банк
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="modal-body">
                 <form action="#">
                     <input type="hidden" name="bank" value="">
                     <div class="container-fluid">
-                        <div class="row justify-content-between">
-                            <div class="col-lg-5 h-100 mb-lg-0 mb-4">
-                                <div class="u-bg-primary p-3 h-100 w-100">
-                                    <div class="mb-3">
-                                        <img class="js-bank-name-img" src="" alt="Bank name" id="js-bank-image" style="display: none">
-                                    </div>
-                                    <div class="u-h2 mb-3">5536 7890 2239 9981</div>
-                                    <div class="u-h1 mb-3">87 891 ₽</div>
-                                    <div class="mb-4">
-                                        Пожалуйста, переведите указанную сумму по указанному адресу, прикрепите чек перевода, а после – подтвердите перевод, нажав на кнопку ниже.
-                                    </div>
-                                    <div class="mb-2">
-                                        Прикрепите чек перевода
-                                    </div>
-                                    <div>
-                                        <input id="image-file" type="file" name="receipt">
-                                    </div>
+                        <div class="row">
+                            <div class="col-lg-8 h-100 mb-lg-0 mb-4 order-lg-1 order-2 u-bg-primary p-3">
+                                <ul class="custom-list">
+                                    <li>
+                                        <div class="custom-list__item-wrapper">
+                                            <div class="custom-list__wrapper">
+                                                <span class="custom-list__date">16:03</span>
+                                                <span class="custom-list__text">Вы начали пополнение</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-list__item-wrapper">
+                                            <div class="custom-list__wrapper">
+                                                <span class="custom-list__date">16:03</span>
+                                                <span class="custom-list__text custom-list__text--success">Вы прикрепили чек перевода</span>
+                                            </div>
+                                            <a href="#" target="_blank" class="custom-list__additional">path_to_receipt.jpg</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-list__item-wrapper">
+                                            <div class="custom-list__wrapper">
+                                                <span class="custom-list__date">16:03</span>
+                                                <span class="custom-list__text custom-list__text--error">Сообщение от администратора</span>
+                                            </div>
+                                            <a href="#" target="_blank" class="custom-list__additional js-read-message-from-admin"><i class="bi bi-search"></i> Читать</a>    
+                                        </div>
+                                        <div class="js-message-from-admin custom-list__text--error" style="display: none;">
+                                            Вы перевели сумму, меньше, чем необходимо.
+                                            <br>
+                                            Пожалуйста, переведите еще 1 781₽ на карту Тинькофф Банка.
+                                            <br>
+                                            После перевода снова прикрепите чек перевода.
+                                        </div>
+                                    </li>
+                                </ul>
+                                
+                                <div class="">
+                                    <button class="button button--primary mb-2 me-2">
+                                        Повторить пополнение
+                                    </button>
+                                    <button class="button button--secondary mb-2">
+                                        Перейти в казино
+                                    </button>
                                 </div>
-                                <button class="button button--big w-100 js-display-three-submit" disabled>Подтвердить</button>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="u-bg-primary p-3 h-100 w-100 js-diplay-three-second-block" style="display: none;">
-                                    
+                            <div class="col-lg-4 order-lg-2 order-1 mb-lg-0 mb-4 ">
+                                <div class="u-bg-secondary p-3 w-100 mb-4 text-end">
+                                    <i class="bi bi-clock-history"></i> 
+                                    <div id="js-time2" class="d-none">600</div>
+                                    <span id="js-minutes-for-pay2">
+                                    </span>:<span id="js-seconds-for-pay2">
+                                    </span>
+                                </div>
+                                <div class="u-bg-primary p-3 pb-0 w-100 text-end">
+                                    <img class="js-bank-name-img" src="" alt="Bank name" style="display: none">
+                                </div>
+                                <div class="u-bg-primary p-3 w-100 text-end">
+                                    <span class="u-font-size-20">Сумма пополнения</span> <br>
+                                    <div class="u-h2 mt-2"><span class="js-pay-amount"></span>$</div>
+                                </div>
+                                <div class="u-bg-primary p-3 w-100 text-end">
+                                    <span class="u-font-size-20">Сумма перевода</span> <br>
+                                    <div class="u-h2 mt-2"><span>87 891</span>₽</div>
+                                </div>
+                                
+                                <div class="p-3 w-100 text-lg-end mt-4">
+                                    <span class="u-font-size-20 d-block">Прикрепить новый чек перевода</span> <br>
+                                    <input type="file" name="receipt">
                                 </div>
                             </div>
                         </div>
@@ -415,8 +452,9 @@
     
     
     <a class="btn btn-primary" data-bs-toggle="modal" href="#firstDisplay" role="button">Open first modal</a>
-    <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#twoDisplay" role="button">Open second modal</a>
-    <a class="btn btn-primary" data-bs-toggle="modal" href="#threeDisplay" role="button">Open third modal</a> -->
+    <a class="btn btn-primary" data-bs-toggle="modal" href="#twoDisplay" role="button">Open second modal</a>
+    <a class="btn btn-primary" data-bs-toggle="modal" href="#threeDisplay" role="button">Open third modal</a>
+    <a class="btn btn-primary" data-bs-toggle="modal" href="#fourDisplay" role="button">Open fourth modal</a>
     
     
     <script src="vendor/jquery/jquery-3.6.0.min.js"></script>
