@@ -449,12 +449,60 @@
         </div>
     </div>
     
+    <div class="modal fade" id="loader" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog custom-modal modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9">
+                            <div class="u-h1">Пополнение счета</div>
+                        </div>
+                        <div class="col-lg-3 text-lg-end mt-lg-0 mt-3">
+                            <div data-bs-dismiss="modal" class="custom-modal__close" aria-label="Close">Отменить пополнение <i class="bi bi-x-lg"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-steps">
+                <div class="container-fluid">
+                    <div class="row mt-4 mb-3">
+                        <div class="col-12 px-3">
+                            <div class="custom-modal__steps">
+                                <div class="custom-modal__step custom-modal__step--active">
+                                    <span class="custom-modal__step-number">1</span>
+                                </div>
+                                <div class="custom-modal__step">
+                                    <span class="custom-modal__step-number">2</span>
+                                </div>
+                                <div class="custom-modal__step">
+                                    <span class="custom-modal__step-number">3</span>
+                                </div>
+                                <div class="custom-modal__step">
+                                    <span class="custom-modal__step-number">4</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="custom-modal__loader">
+                    <img src="img/icon/loader.svg" alt="load...">
+                    Ожидайте, процесс займет не более 1 минуты
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
     
     
     <a class="btn btn-primary" data-bs-toggle="modal" href="#firstDisplay" role="button">Open first modal</a>
     <a class="btn btn-primary" data-bs-toggle="modal" href="#twoDisplay" role="button">Open second modal</a>
     <a class="btn btn-primary" data-bs-toggle="modal" href="#threeDisplay" role="button">Open third modal</a>
     <a class="btn btn-primary" data-bs-toggle="modal" href="#fourDisplay" role="button">Open fourth modal</a>
+    <a class="btn btn-primary" data-bs-toggle="modal" href="#loader" role="button">Open loader</a>
     
     
     <script src="vendor/jquery/jquery-3.6.0.min.js"></script>

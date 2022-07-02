@@ -1,5 +1,18 @@
 .custom-modal {
     max-width: 1200px;
+    
+    &__loader {
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        
+        & img {
+            margin-bottom: 15px;
+        }
+    }
         
     &__close {
         color: #fff;
@@ -55,9 +68,13 @@
         &:after {
             display: block;
             content: '';
-            width: 50px;
+            width: calc(33vw - 40px);
             background-color: #fff;
             height: 1px;
+            
+            @media (min-width: $sm) {
+                width: calc(33vw - 35px);
+            }
             
             @media (min-width: $md) {
                 width: 100px;
