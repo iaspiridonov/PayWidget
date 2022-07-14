@@ -74,8 +74,15 @@ $(document).ready(function () {
     
     $('.js-display-two-submit').click(function (e) { 
         e.preventDefault();
+        $(this).addClass('disable');
+        $('.js-disable').addClass('disable');
         
-        $('.js-diplay-two-second-block').show('fast');
+        setTimeout(() => {
+            $(this).text('Изменить сумму');
+            $('.js-disable').removeClass('disable');
+            $(this).removeClass('disable');
+            $('.js-diplay-two-second-block').show('fast');
+        }, 3000);
     });
     
     $('#go-to-three-display').click(function (e) {

@@ -6,3 +6,11 @@ a {
 		color: $color-text;
 	}
 }
+
+.a--underline {
+	text-decoration: underline;
+	
+	&:hover {
+		text-decoration: none;
+	}
+}
