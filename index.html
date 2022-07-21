@@ -10,16 +10,57 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/main.min.css">
     <script>
+        // These functions are required for attribute of onclick
         function copyText() {
             var copyText = document.getElementById("js-copy");
             copyText.select();
             document.execCommand("copy");
         }
+        
+        function setCookie(name, value, options = {}) {
+
+            options = {
+                path: '/',
+                ...options
+            };
+
+            if (options.expires instanceof Date) {
+                options.expires = options.expires.toUTCString();
+            }
+
+            let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+            for (let optionKey in options) {
+                updatedCookie += "; " + optionKey;
+                let optionValue = options[optionKey];
+                if (optionValue !== true) {
+                    updatedCookie += "=" + optionValue;
+                }
+            }
+
+            document.cookie = updatedCookie;
+        }
+        
+        function deleteCookie(name) {
+            setCookie(name, "", {
+            'max-age': -1
+            })
+        }
+    
+        function deleteAllCookies() {
+            deleteCookie('bankImage');
+            deleteCookie('bankbankNameImage');
+            deleteCookie('payAmount');
+            deleteCookie('timer1');
+            deleteCookie('timer2');
+            deleteCookie('receiptUrl');
+            deleteCookie('step');
+        }
     </script>
 </head>
 <body>
     
-    <div class="modal fade" id="firstDisplay" aria-hidden="true" tabindex="-1">
+    <div class="modal fade" id="js-step-1" aria-hidden="true" tabindex="-1">
         <div class="modal-dialog custom-modal modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -132,7 +173,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-8 p-3 ps-4">
-                                <button type="button" class="button button--secondary js-pending" data-bs-target="#twoDisplay" data-bs-toggle="modal" data-bs-dismiss="modal">
+                                <button type="button" class="button button--secondary js-pending" data-bs-target="#js-step-2" onclick="setCookie('step', 2);" data-bs-toggle="modal" data-bs-dismiss="modal">
                                     Подтвердить
                                 </button>
                             </div>
@@ -145,7 +186,7 @@
     </div>
       
       
-    <div class="modal fade" id="twoDisplay" aria-hidden="true" tabindex="-1">
+    <div class="modal fade" id="js-step-2" aria-hidden="true" tabindex="-1">
         <div class="modal-dialog custom-modal modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -181,7 +222,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12 px-3 u-cursor-pointer" data-bs-target="#firstDisplay" data-bs-toggle="modal" data-bs-dismiss="modal">
+                        <div class="col-12 px-3 u-cursor-pointer" data-bs-target="#js-step-1" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="setCookie('step', 1);">
                             <i class="bi bi-arrow-left"></i>
                             Изменить банк
                         </div>
@@ -200,7 +241,7 @@
                                     </div>
                                     <div class="u-h2 mb-4">Сумма пополнения</div>
                                     <div class="mb-2">Выберите сумму из предложенных:</div>
-                                    <div class="custom-radio mb-4">
+                                    <div class="custom-radio js-select-pay-amount mb-4">
                                         <label for="rate-1">
                                             100$
                                             <input id="rate-1" type="radio" value="100" name="rate">
@@ -249,7 +290,7 @@
                                         Обратите внимание, если вы переведете сумму меньше, пополнение не будет выполненно
                                     </div>
                                     <br><br>
-                                    <button id="go-to-three-display" type="button" class="button button--secondary" data-bs-target="#threeDisplay" data-bs-toggle="modal" data-bs-dismiss="modal">Перейти к пополнению</button>
+                                    <button id="go-to-three-display" type="button" class="button button--secondary" data-bs-target="#js-step-3" onclick="setCookie('step', 3);" data-bs-toggle="modal" data-bs-dismiss="modal">Перейти к пополнению</button>
                                 </div>
                             </div>
                         </div>
@@ -261,7 +302,7 @@
     </div>
     
     
-    <div class="modal fade" id="threeDisplay" aria-hidden="true" tabindex="-1">
+    <div class="modal fade" id="js-step-3" aria-hidden="true" tabindex="-1">
         <div class="modal-dialog custom-modal modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -320,7 +361,7 @@
                                         <input id="image-file" type="file" name="receipt">
                                     </div>
                                 </div>
-                                <button type="button" class="button button--big w-100 js-display-three-submit" disabled data-bs-target="#fourDisplay" data-bs-toggle="modal" data-bs-dismiss="modal">Подтвердить</button>
+                                <button type="button" class="button button--big w-100 js-display-three-submit" disabled data-bs-target="#js-step-4" onclick="setCookie('step', 4);" data-bs-toggle="modal" data-bs-dismiss="modal">Подтвердить</button>
                             </div>
                             <div class="col-lg-4 order-lg-2 order-1 mb-lg-0 mb-4 ">
                                 <div class="u-bg-secondary p-3 w-100 mb-4">
@@ -344,7 +385,7 @@
     </div>
     
     
-    <div class="modal fade" id="fourDisplay" aria-hidden="true" tabindex="-1">
+    <div class="modal fade" id="js-step-4" aria-hidden="true" tabindex="-1">
         <div class="modal-dialog custom-modal modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -654,13 +695,14 @@
     
     
     
-    <a class="btn btn-primary" data-bs-toggle="modal" href="#firstDisplay" role="button">Open first modal</a>
-    <a class="btn btn-primary" data-bs-toggle="modal" href="#twoDisplay" role="button">Open second modal</a>
-    <a class="btn btn-primary" data-bs-toggle="modal" href="#threeDisplay" role="button">Open third modal</a>
-    <a class="btn btn-primary" data-bs-toggle="modal" href="#fourDisplay" role="button">Open fourth modal</a>
+    <a class="btn btn-primary" data-bs-toggle="modal" href="#js-step-1" onclick="setCookie('step', 1);" role="button">Open first modal</a>
+    <a class="btn btn-primary" data-bs-toggle="modal" href="#js-step-2" onclick="setCookie('step', 2);" role="button">Open second modal</a>
+    <a class="btn btn-primary" data-bs-toggle="modal" href="#js-step-3" onclick="setCookie('step', 3);" role="button">Open third modal</a>
+    <a class="btn btn-primary" data-bs-toggle="modal" href="#js-step-4" onclick="setCookie('step', 4);" role="button">Open fourth modal</a>
     <a class="btn btn-primary" data-bs-toggle="modal" href="#loader" role="button">Open loader</a>
     <a class="btn btn-primary" data-bs-toggle="modal" href="#receiptError" role="button">Open receipt error</a>
     <a class="btn btn-primary" data-bs-toggle="modal" href="#commonError" role="button">Open common error</a>
+    <button class="btn btn-danger" onclick="deleteAllCookies();">Delete all cookies</button>
     
     
     <script src="vendor/jquery/jquery-3.6.0.min.js"></script>
