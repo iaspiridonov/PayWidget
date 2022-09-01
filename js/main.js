@@ -32,6 +32,9 @@ $(document).ready(function () {
             // Show next block
             $('.js-after-select-bank').show('fast');
             
+            $('#js-step-1 .js-disable').prop('disabled', false);
+            $('#js-step-1 .js-disable').removeClass('js-disable');
+            
             $('#js-display-two-bank-name').text('"'+ getCookie('bankName') + '".');
         }
         
@@ -283,3 +286,10 @@ $(document).ready(function () {
         myModal.show();
     }
 });
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: "auto",
+    freeMode: true,
+    spaceBetween: 5,
+    grabCursor: true
+  });

@@ -1,6 +1,15 @@
 .custom-modal {
     max-width: 1200px;
     
+    &__title {
+        font-size: 16px !important;
+        display: inline-block;
+        
+        @media (min-width: $sm) {
+            font-size: inherit;
+        }
+    }
+    
     &__loader {
         height: 50vh;
         display: flex;
@@ -13,6 +22,10 @@
             margin-bottom: 15px;
         }
     }
+    
+    & .modal-body {
+        padding: 1rem 5px;
+    }
         
     &__close {
         color: #fff;
@@ -23,6 +36,7 @@
     & .modal-header {
         background-color: $color-primary;
         border-bottom: none;
+        padding: 1rem 0;
     }
     
     & .modal-content {
@@ -36,21 +50,16 @@
         
         &-attention {
             font-weight: 300;
-            font-size: 20px;
+            font-size: 16px;
             line-height: 1.2;
-            padding-left: 10px;
             position: relative;
+            
+            @media (min-width: $sm) {
+                font-size: 20px;
+            }
             
             & b {
                 font-weight: 400;
-            }
-            
-            &::before {
-                content: '!';
-                font-size: 52px;
-                font-weight: 400;
-                position: absolute;
-                left: -15px;
             }
         }
     }

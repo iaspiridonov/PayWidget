@@ -18,9 +18,14 @@
         background-color: $color-secondary;
         
         &:disabled {
-            background-color: #2D2D65;
-            color: rgba(255, 255, 255, 0.3);
+            background-color: #2D2D65 !important;
+            color: rgba(255, 255, 255, 0.3) !important;
         }
+    }
+            
+    &:disabled, &.js-disable {
+        background-color: #2D2D65 !important;
+        color: rgba(255, 255, 255, 0.3) !important;
     }
     
     &--secondary {
@@ -28,6 +33,28 @@
         
         &:hover {
             background-color: $color-secondary-hover;
+        }
+    }
+    
+    &--mobile-full {
+        width: 100%;
+        
+        @media (min-width: $sm) {
+            width: inherit;
+        }
+    }
+    
+    &--mini {
+        font-size: 12px;
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid $color-secondary;
+        padding: 3px 5px;
+        display: inline-block;
+        border-radius: 50px;
+        
+        @media (min-width: $sm) {
+            font-size: 14px;
         }
     }
     
