@@ -2,15 +2,10 @@
     padding: 0;
     
     & li {
-        border-bottom: 1px solid $color-secondary;
-        border-left: 1px solid $color-secondary;
+        border: 1px solid $color-secondary;;
         padding: 10px;
         position: relative;
         list-style-type: none;
-        
-        &:last-child {
-            border-bottom: 0;
-        }
     }
     
     &__item-wrapper {
@@ -18,17 +13,6 @@
         flex-direction: column;
         justify-content: center;
         position: relative;
-        
-        &:after {
-            content: '';
-            width: 11px;
-            height: 11px;
-            border-radius: 50%;
-            border: 1px solid $color-secondary;
-            position: absolute;
-            left: -16px;
-            background-color: $color-primary;
-        }
         
         @media (min-width: $lg) {
             flex-direction: row;
@@ -60,8 +44,8 @@
     }
     
     &__additional {
-        color: #8F93FF;   
-        text-align: right;
+        color: #8F93FF;  
+        margin-top: 10px;
         
         &:hover {
             color: #8F93FF;
