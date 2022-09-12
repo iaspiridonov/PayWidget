@@ -21,6 +21,10 @@
         & img {
             margin-bottom: 15px;
         }
+        
+        @media (min-width: $md) {
+            height: 50vh;
+        }
     }
     
     & .modal-body {

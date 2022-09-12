@@ -1,4 +1,30 @@
 $(document).ready(function () {
+    
+    $('.js-display-two-access').click(function (e) { 
+        e.preventDefault();
+        $('.js-display-two-hide').hide('fast');
+        $('.js-display-two-show').show('fast');
+    });
+    
+    $('.js-display-two-revert').click(function (e) { 
+        e.preventDefault();
+        $('.js-display-two-hide').show('fast');
+        $('.js-display-two-show').hide('fast');
+    });
+    
+    document.getElementById('js-file-1').addEventListener('change', function (e) {
+        // Проверяем, что только 1 файл был выбран
+        if (this.files && this.files.length == 1) {
+            const textContainer = this.nextElementSibling.querySelector('.custom-file__text');
+            const fileName = e.target.value.split('\\').pop();
+            if (textContainer) {
+                textContainer.textContent = fileName || 'Выберите файл для загрузки';
+                return true;
+            }
+        }
+        return false;
+    });
+    
     $bankImage = $('.js-bank-name-img');
     
     $('.card--select').click(function (e) { 
@@ -65,14 +91,17 @@ $(document).ready(function () {
         if (amount < 90) {
             $('.js-error').html('Минимальная сумма пополнения — $90<br>Пожалуйста, введите другую сумму');
             $('.js-display-two-submit').prop('disabled', true);
+            $('.js-display-two-access').prop('disabled', true);
             setCookie('payAmount', 0);
-        } else if (amount > 1500) {
-            $('.js-error').html('Максимальная сумма пополнения — $1500<br>Пожалуйста, введите другую сумму');
+        } else if (amount > 5000) {
+            $('.js-error').html('Максимальная сумма пополнения — $5000<br>Пожалуйста, введите другую сумму');
             $('.js-display-two-submit').prop('disabled', true);
+            $('.js-display-two-access').prop('disabled', true);
             setCookie('payAmount', 0);
         } else {
             $('.js-error').html('');
             $('.js-display-two-submit').prop('disabled', false);
+            $('.js-display-two-access').prop('disabled', false);
             
             setCookie('payAmount', amount);
         }
@@ -85,12 +114,10 @@ $(document).ready(function () {
         $(this).addClass('disable');
         $('.js-disable').addClass('disable');
         
-        setTimeout(() => {
-            $(this).text('Изменить сумму');
-            $('.js-disable').removeClass('disable');
-            $(this).removeClass('disable');
-            $('.js-diplay-two-second-block').show('fast');
-        }, 3000);
+        // setTimeout(() => {
+        //     $('.js-disable').removeClass('disable');
+        //     $(this).removeClass('disable');
+        // }, 3000);
     });
     
     $('#go-to-three-display').click(function (e) {
@@ -103,8 +130,8 @@ $(document).ready(function () {
     });
     
     
-    $('#image-file').change(function(e) {
-        file = $('#image-file')[0].files[0];
+    $('.image-file').change(function(e) {
+        file = $('.image-file')[0].files[0];
         if (file){
             console.log(file);
             
@@ -253,7 +280,6 @@ $(document).ready(function () {
     
     if (getCookie('payAmount')) {
         $('.js-pay-amount').text(getCookie('payAmount'));
-        $('.js-display-two-submit').text('Изменить сумму');
         $('.js-diplay-two-second-block').show('fast');
         $('#js-rate-filed').val(getCookie('payAmount'));
         $('.js-display-two-submit').prop('disabled', false);
@@ -271,12 +297,12 @@ $(document).ready(function () {
     
     if (getCookie('receiptUrl')) {
         time2.text(getCookie('timer2'));
-        file = $('#image-file')[0].files[0];
+        file = $('.image-file')[0].files[0];
         
         if (file){
             $('.js-display-three-submit').prop('disabled', false);
             setCookie('receiptUrl', file);
-            $('#image-file').val(file);
+            $('.image-file').val(file);
         }  
     }
     

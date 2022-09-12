@@ -225,14 +225,22 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-5 h-100 mb-lg-0 mb-4 js-disable px-sm-3 px-2">
-                                <div class="u-bg-primary p-sm-3 p-1 h-100 w-100 pt-3">
+                            <div class="col-lg-5 h-100 js-disable px-sm-3 px-2">
+                                <div class="u-bg-primary p-sm-3 p-1 h-100 w-100 pt-3 pb-2">
                                     <div class="mb-3 d-flex align-items-center justify-content-between">
                                         <img class="js-bank-name-img" src="" alt="Bank name" style="display: none">
-                                        <div class="u-h2">Сумма пополнения</div>
+                                        <div class="text-end">
+                                            <div class="u-h2">Сумма пополнения</div>
+                                            <div class="js-display-two-show" style="display:none;">
+                                                <div class="d-flex justify-content-between align-items-center mt-2 js-display-two-revert">
+                                                    <button class="button button--round">Изменить</button>
+                                                    <div><b class="js-pay-amount"> </b><b> $</b></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="mb-2">Выберите сумму из предложенных:</div>
-                                    <div class="custom-radio js-select-pay-amount mb-4">
+                                    <div class="mb-2 js-display-two-hide">Выберите сумму из предложенных:</div>
+                                    <div class="custom-radio js-select-pay-amount mb-4 js-display-two-hide">
                                         <label for="rate-1">
                                             100$
                                             <input id="rate-1" type="radio" value="100" name="rate">
@@ -258,30 +266,31 @@
                                             <input id="rate-6" type="radio" value="5000" name="rate">
                                         </label>
                                     </div>
-                                    <div class="mb-2">
+                                    <div class="mb-2 js-display-two-hide">
                                         Или введите сумму в поле ниже:
                                     </div>
-                                    <div class="d-flex align-items-center">
-                                        <span class="me-2">$</span><input id="js-rate-filed" class="input" minlength="2" maxlength="4" type="number" name="rate-field" placeholder="Например 90...">
-                                    </div>
-                                    <div class="js-error mt-2 mb-4 text-danger">
-                                        
+                                    <div class="js-display-two-hide">
+                                        <div class="d-flex align-items-center">
+                                            <span class="me-2">$</span><input id="js-rate-filed" class="input" minlength="2" maxlength="4" type="number" name="rate-field" placeholder="Например 90...">
+                                        </div>
                                     </div>
                                 </div>
-                                <button class="button button--big w-100 js-display-two-submit" disabled>Подтвердить</button>
                             </div>
-                            <div class="col-lg-7 px-sm-3 px-2">
-                                <div class="u-bg-primary py-4 p-sm-3 p-1 h-100 w-100 js-diplay-two-second-block" style="display: none;">
+                            <div class="col-12 px-2">
+                                <button class="button button--big w-100 js-display-two-access js-display-two-hide" disabled>Подтвердить</button>
+                            </div>
+                            <div class="col-lg-7 px-sm-3 px-2 js-display-two-show" style="display: none;">
+                                <div class="u-bg-primary py-2 p-sm-3 p-1 w-100 js-diplay-two-second-block">
                                     <div class="u-h2 mb-3">
                                         Ваш счет будет пополнен на <b class="js-pay-amount"> </b><b> USD</b>
                                     </div>
                                     <div class="mb-3">
-                                        Вам необходимо  будет перевести 87 891₽ с карты банка <span id="js-display-two-bank-name">"”.</span>
+                                        <b>Вам необходимо  будет перевести 87 891₽ с карты банка <span id="js-display-two-bank-name">"”.</span></b>
                                         <br><br>
                                         Обратите внимание, если вы переведете сумму меньше, пополнение не будет выполненно
                                     </div>
                                     <br><br>
-                                    <button id="go-to-three-display" type="button" class="button button--big w-100" data-bs-target="#js-step-3" onclick="setCookie('step', 3);" data-bs-toggle="modal" data-bs-dismiss="modal">Перейти к пополнению</button>
+                                    <button id="go-to-three-display" type="button" class="button button--big w-100 js-display-two-submit" data-bs-target="#js-step-3" onclick="setCookie('step', 3);" data-bs-toggle="modal" data-bs-dismiss="modal">Перейти к пополнению</button>
                                 </div>
                             </div>
                         </div>
@@ -336,6 +345,13 @@
                         <div class="row justify-content-between">
                             <div class="col-lg-5 h-100 order-lg-1 order-2 px-sm-3 px-0">
                                 <div class="u-bg-primary p-3 h-100 w-100">
+                                    <div class="u-h4 mb-3">
+                                        <div>
+                                            <img src="img/icon/loader.png" alt="load..." class="load m-0 d-inline-block me-2" width="18">
+                                            Ожидайте, сейчас появятся реквизиты
+                                        </div>
+                                        <div class="u-h2 mt-3">XXXX XXXX XXXX XXXX</div>
+                                    </div>
                                     <div class="u-h2 mb-3 copy">
                                         <button class="mb-3 text-decoration-none" onclick="copyText()"><img src="img/icon/copy.svg" alt="copy"> Скопировать номер карты</button>
                                         <input type="text" id="js-copy" value="5536 7890 2239 9981">
@@ -344,12 +360,13 @@
                                     <div class="mb-4">
                                         Пожалуйста, переведите указанную сумму по указанному адресу, прикрепите чек перевода, а после – подтвердите перевод, нажав на кнопку ниже.
                                     </div>
-                                    <div class="mb-2">
-                                        Прикрепите чек перевода
-                                    </div>
-                                    <div>
-                                        <input id="image-file" type="file" name="receipt">
-                                    </div>
+                                </div>
+                                <div class="custom-file button button--big w-100 text-center mb-3">
+                                    <input id="js-file-1" class="image-file js-file custom-file__input" type="file" name="uploadFile"/>
+                                    <label class="custom-file__label" for="js-file-1">
+                                        <i class="custom-file__icon"></i>
+                                        <span class="custom-file__text"><img class="me-2" src="img/icon/ico-download.svg" alt="upload">Прикрепить чек перевода</span>
+                                    </label>
                                 </div>
                                 <button type="button" class="button button--big w-100 js-display-three-submit" disabled data-bs-target="#js-step-4" onclick="setCookie('step', 4);" data-bs-toggle="modal" data-bs-dismiss="modal">Подтвердить</button>
                             </div>
@@ -471,17 +488,9 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <button type="button" class="button button--big w-100">Открыть все уведомления</button>
-                            </div>
-                            
-                            <div class="col-12">
-                                <div class="p-3 w-100 text-lg-end mt-4">
-                                    <span class="u-font-size-20 d-block">Прикрепить новый чек перевода</span> <br>
-                                    <input type="file" name="receipt">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button type="button" class="button button--big w-100">Подтвердить</button>
+                                <button type="button" class="button button--big w-100 mb-3">Открыть все уведомления</button>
+                                
+                                <button type="button" class="button button--big w-100">Перейти в казино</button>
                             </div>
                         </div>
                     </div>
